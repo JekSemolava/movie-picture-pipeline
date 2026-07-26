@@ -91,5 +91,6 @@ jobs:
 
       - name: Deploy Frontend
         run: |
-          kubectl apply -f starter/frontend/k8s/
-          kubectl set image deployment/frontend frontend=${{ steps.login-ecr.outputs.registry }}/frontend:${{ github.sha }}
+          kubectl apply -f starter/frontend/k8s/deployment.yaml
+          kubectl apply -f starter/frontend/k8s/service.yaml
+          kubectl set image deployment/frontend frontend=${{ steps.login-ecr.outputs.registry }}/frontend:${{ github.sha }}}
